@@ -19,7 +19,12 @@
   } ],
 
   "scripts"             : {
-    "test"                : "vows --spec --isolate test/*-vows.js"
+    "test-vows"                : "vows --spec --isolate test/*-vows.js",
+    "test-mocha"               : "mocha test/integration-global-mocha.js",
+    "test-mocha-cov"           : "mocha -r blanket test/integration-global-mocha.js",
+    "blanket": {
+      "pattern": "//^((?!(node_modules|test)).)*$/"
+    }
   },
 
   "main"                : "./lib/index.js",
@@ -35,7 +40,8 @@
 
   "devDependencies"     : {
     "should"              : "2.0.x",
-    "vows"                : "0.7.x"
+    "vows"                : "0.7.x",
+    "underscore"          : ""
   },
 
   "bundleDependencies"  : [ ],
